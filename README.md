@@ -83,7 +83,9 @@ Open the `.env` file and add the following variables. Replace the placeholder wi
 ```env
 NODE_ENV=development
 PORT=5000
-MONGO_URI=your_mongodb_connection_string
+#MONGO_URI=your_mongodb_connection_string
+MONGO_URI=mongodb://127.0.0.1:27017/shopnfeel
+
 ```
 
 ### 3. Frontend Setup
@@ -103,6 +105,21 @@ npm install
 
 Your application needs some initial product data to function. A seeder script is included for this purpose. Run the following command from the `server` directory:
 
+# Spin Up a MongoDB docker Container for database
+# Install Docker
+sudo yum update -y
+yum install docker -y
+
+# Start the Docker service
+sudo service docker start
+
+# Add your user ('ec2-user') to the 'docker' group
+sudo usermod -a -G docker ec2-user
+
+# Run Docker container
+docker run --name shopnfeel-db -p 127.0.0.1:27017:27017 -d mongo
+
+
 ```bash
 # Make sure you are in the server/ directory
 npm run data:import
@@ -118,6 +135,7 @@ You will need two separate terminals to run both the backend and frontend server
 npm run server
 ```
 Your backend API will now be running on `http://localhost:5000`.
+Test: curl http://localhost:5000/
 
 **In your second terminal (from the `client` directory):**
 ```bash
