@@ -32,12 +32,12 @@ ShopNFeel/
 │       ├── pages/      # Page-level components
 │       └── App.js      # Main app component with routing
 ├── server/         # Node.js/Express backend API
-│   ├── config/     # Database connection logic
+│   ├── config/     # Configuration files (e.g., db.js for database connection)
 │   ├── controllers/ # Route handler logic
 │   ├── middleware/ # Custom Express middleware
 │   ├── models/     # Mongoose data models (schemas)
 │   └── routes/     # API route definitions
-│   └── server.js   # Main server entry point
+│   └── server.js     # Main server entry point
 └── README.md       # You are here!
 ```
 
