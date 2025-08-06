@@ -18,7 +18,7 @@ const Product3DView = () => {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get(`http://localhost:5000/api/products/${id}`);
+        const { data } = await axios.get(`/api/products/${id}`);
         setProduct(data);
         setLoading(false);
       } catch (err) {

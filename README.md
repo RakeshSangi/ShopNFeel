@@ -59,7 +59,7 @@ Follow these steps to get your development environment set up.
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/your-username/ShopNFeel.git
 cd ShopNFeel
 ```
 

@@ -8,13 +8,13 @@
   max-width: 800px;
 }
 
-.danger {
+.message.danger {
   color: var(--danger-color);
   background-color: var(--danger-bg-color);
   border-color: var(--danger-border-color);
 }
 
-.message.info, .message {
+.message.info {
   color: #31708f;
   background-color: #d9edf7;
   border-color: #bce8f1;
