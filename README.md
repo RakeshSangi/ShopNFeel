@@ -1,228 +1,128 @@
-# 🛍️ ShopNFeel
+# ShopNFeel - 3D Virtual Try-On E-Commerce Platform
 
-**ShopNFeel** is a cutting-edge web-based 3D shopping application designed to revolutionize the way men and women explore fashion. By combining virtual try-on technology with realistic 3D visualization, the app allows users to see, feel, and experience clothing before making a purchase — all from the comfort of home.
+ShopNFeel is a modern, full-stack e-commerce web application built with the MERN stack. It offers a unique shopping experience by allowing users to view products as interactive 3D models and virtually try on clothing using their webcam.
+
+## Features
+
+- **Product Catalog**: Browse a collection of clothing items fetched from a database.
+- **Interactive 3D Viewer**: View detailed 3D models of products with zoom and rotation controls, built with React Three Fiber.
+- **Virtual Try-On**: Use your device's camera to see a 2D overlay of clothing on your body in real-time, powered by TensorFlow.js.
+- **Dynamic Frontend**: A responsive and interactive user interface built with React.
+- **Robust Backend**: A powerful REST API built with Node.js and Express, connected to a MongoDB database.
+
+## Tech Stack
+
+- **Frontend**: React, React Router, React Three Fiber, Axios
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB with Mongoose
+- **3D & AI**: Three.js, TensorFlow.js (PoseNet)
 
 ---
 
-## 🌟 Features
+## Project Structure
 
-- 🏠 Homepage with immersive branding and CTA
-- 🛍️ Product Listing with dynamic backend integration
-- 🧥 3D Viewer using Three.js and React Three Fiber
-- 🧍 Virtual Try-On using MediaPipe Pose Detection
-- 🔗 Backend API for product data (Node.js + Express)
-- 🧭 Navigation and routing with React Router
+A brief overview of the key directories in the project.
 
+```
+ShopNFeel/
+├── client/         # React frontend application
+│   ├── public/     # Static assets (images, 3D models)
+│   └── src/
+│       ├── components/ # Reusable React components
+│       ├── pages/      # Page-level components
+│       └── App.js      # Main app component with routing
+├── server/         # Node.js/Express backend API
+│   ├── config/     # Database connection logic
+│   ├── controllers/ # Route handler logic
+│   ├── middleware/ # Custom Express middleware
+│   ├── models/     # Mongoose data models (schemas)
+│   └── routes/     # API route definitions
+│   └── server.js   # Main server entry point
+└── README.md       # You are here!
+```
 
- Step 1: Initialize React Frontend
- Open your terminal and run:
-	npx create-react-app client
-	cd client
-	npm install three @react-three/fiber @react-three/drei axios
+---
 
-This sets up your React app and installs:
+## Prerequisites
 
-three: for 3D rendering
-@react-three/fiber: React renderer for Three.js
-@react-three/drei: useful helpers for 3D scenes
-axios: for API calls
+Before you begin, ensure you have the following installed on your system:
+- [Node.js](https://nodejs.org/en/) (v16 or later recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- [MongoDB](https://www.mongodb.com/try/download/community). You can use a local installation or a free cloud-based service like [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
 
-⚙️ Step 2: Initialize Node.js Backend
-In the root folder:
-mkdir server
-cd server
-npm init -y
-npm install express cors mongoose dotenv
+---
 
-Create a basic server file:
+## Installation & Setup
 
-// server/server.js
+Follow these steps to get your development environment set up.
 
-Let's write the starter code for your ShopNFeel web app
-🏠 Homepage Component (Home.js)
+### 1. Clone the Repository
 
-// client/src/pages/Home.js
+```bash
+git clone <your-repository-url>
+cd ShopNFeel
+```
 
-🖌️ Basic CSS (Home.css)
-🛍️ Product Listing Page (ProductList.js)
-🖌️ Product CSS (ProductList.css)
+### 2. Backend Setup
 
-Let's add routing and a navigation bar to your React app so users can move between the homepage and product listing.
+Navigate to the server directory and install the required dependencies.
 
-🧭 Step 1: Install React Router
-In your client folder, run:
-
-npm install react-router-dom
-
-🧩 Step 2: Set Up Routing (App.js)
-
-// client/src/App.js
-🧭Step 3: Create Navigation Bar (Navbar.js)
-🖌️ Navbar CSS (Navbar.css)
-
-Let’s integrate a 3D viewer into your React app using Three.js via @react-three/fiber. This will allow users to interact with clothing models in a realistic 3D space.
-
-🧊 Step-by-Step: 3D Viewer Setup
-✅ 1. Install Required Packages
-
-If you haven’t already, run:
-npm install three @react-three/fiber @react-three/drei
-
-✅ 2. Create the 3D Viewer Component
-
-// client/src/components/ClothingViewer.js
-✅ 3. Use the Viewer in a Page
-// client/src/pages/Product3DView
-✅ 4. Add Route to Viewer Page
-Update App.js:
-import Product3DView from './pages/Product3DView';
-
-<Route path="/product-view" element={<Product3DView />} />
-
-
-This setup uses a placeholder box as the clothing model. You can later replace it with a .glb or .gltf file using useGLTF from @react-three/drei.
-
-Let’s now set up the backend API for your ShopNFeel project using Node.js + Express. This API will serve product data to your frontend.
-
-🛠️ Step-by-Step: Backend API Setup
-✅ 1. Create Folder Structure
-Inside your server/ folder:
-
-server/
-├── controllers/
-│   └── productController.js
-├── routes/
-│   └── productRoutes.js
-├── data/
-│   └── products.js
-├── server.js
-└── package.json
-
-✅ 2.  Product Data (data/products.js)
-
-✅ 3. Controller (controllers/productController.js)
-
-✅ 4. Routes (routes/productRoutes.js)
-✅ 5. Main Server File (server.js)
-
-✅ 6. Test the API
-Start the server:
-
-node server.js
-
-Visit http://localhost:5000/api/products in your browser or Postman — you should see the product list in JSON format.
-
-/// Fetch Products from Backend
-npm install axios
-
-Step-by-Step: Connect Frontend to Backend
-✅ 1. Update ProductList.js
-Replace your static product array with Axios-based fetching:
-
-
-// client/src/pages/ProductList.js
-
-✅ 2. Ensure Backend is Running
-Start your backend server:
-node server/server.js
-
-Make sure it’s accessible at http://localhost:5000/api/products.
-
-✅ 3. CORS Configuration
-If you run into CORS issues, ensure your backend has:
-
-const cors = require('cors');
-app.use(cors());
-
-///Let’s build the Virtual Try-On feature for your ShopNFeel web app
-
-🧍‍♂️ Virtual Try-On: Web-Based Approach
-✅ Option 1: Webcam-Based Try-On
-Use MediaPipe for body or pose detection
-Overlay clothing images on detected body parts
-Works in real-time with webcam
-✅ Option 2: Image Upload Try-On
-User uploads a photo
-Detect body landmarks
-Overlay clothing image on top
-🧪 Technologies Used
-@mediapipe/pose or @mediapipe/selfie_segmentation
-@tensorflow-models/body-pix or pose-detection
-HTML5 Canvas for overlay
-React for UI
-
-🧩  Component: Image Upload + Overlay
-
-// client/src/pages/TryOn.js
-
-📝 Note: Replace /assets/shirt-overlay.png with a transparent PNG of a shirt or jacket.
-
-🧍‍♂️ Step-by-Step: Pose Detection with MediaPipe
-✅ 1. Install Required Packages
-npm install @tensorflow-models/pose-detection @tensorflow/tfjs-core @tensorflow/tfjs-backend-webgl
-
-✅ 2. Create Pose Detection Component
-
-// client/src/components/PoseTryOn.js
-
-✅ 3. Add Route to App
-
-import PoseTryOn from './components/PoseTryOn';
-
-<Route path="/try-on" element={<PoseTryOn />} />
-
-This setup:
-Uses webcam input
-Detects body keypoints
-Draws red dots on detected joints (you can later overlay clothing images here)
-
-✅ What You’ve Completed
-🌐 Frontend (React)
-Homepage with branding and CTA
-Product Listing Page with dynamic data from backend
-Navigation Bar with routing
-3D Viewer using @react-three/fiber
-Virtual Try-On using MediaPipe pose detection
-🔧 Backend (Node.js + Express)
-API endpoint for products (/api/products)
-Sample product data served to frontend
-
-📝 Setup Instructions (Manual Copy)
-
-## 🛠️ Setup Instructions
-
-### Frontend (React)
-1. Navigate to the `client` folder:
-   ```bash
-   cd client
-   npm install
-   npm start
-   ```
-Backend (Node.js + Express)
-Navigate to the server folder:
+```bash
 cd server
 npm install
-node server.js
+```
 
+Next, create a `.env` file in the `server` directory. This file will store your environment variables.
 
-showcase the ShopNFeel project:
+```
+touch .env
+```
 
-1. Start the Backend Server
-cd server
-node server.js
-2. Start the Frontend App
+Open the `.env` file and add the following variables. Replace the placeholder with your actual MongoDB connection string.
+
+```env
+NODE_ENV=development
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+```
+
+### 3. Frontend Setup
+
+In a new terminal, navigate to the client directory and install its dependencies.
+
+```bash
 cd client
+npm install
+```
+
+---
+
+## Usage
+
+### 1. Seed the Database
+
+Your application needs some initial product data to function. A seeder script is included for this purpose. Run the following command from the `server` directory:
+
+```bash
+# Make sure you are in the server/ directory
+npm run data:import
+```
+This will populate your MongoDB database with the sample products.
+
+### 2. Run the Application
+
+You will need two separate terminals to run both the backend and frontend servers.
+
+**In your first terminal (from the `server` directory):**
+```bash
+npm run server
+```
+Your backend API will now be running on `http://localhost:5000`.
+
+**In your second terminal (from the `client` directory):**
+```bash
 npm start
+```
+Your React application will open in your browser at `http://localhost:3000`.
 
-
-Access the App
-Frontend: http://localhost:3000
-Backend API: http://localhost:5000/api/products
-
-Explore the homepage and product listing
-Click “View in 3D” to open the 3D viewer
-Go to /try-on to test the virtual try-on feature
-
-
-                        *** Thank You ***
-
+You can now access the website and explore all its features!

@@ -3,13 +3,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #333;
-  color: white;
+  background-color: var(--dark-color);
+  color: var(--white-color);
 }
 
 .nav-links a {
   margin-left: 20px;
-  color: white;
+  color: var(--white-color);
   text-decoration: none;
 }
 

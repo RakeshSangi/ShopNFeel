@@ -1,12 +1,12 @@
 .home {
   text-align: center;
   padding: 50px;
-  background: linear-gradient(to right, #f8f8f8, #e0e0e0);
+  background: var(--white-color);
 }
 
 .hero h1 {
   font-size: 3rem;
-  color: #333;
+  color: var(--dark-color);
 }
 
 .hero p {
@@ -17,9 +17,11 @@
 .cta {
   padding: 10px 20px;
   font-size: 1rem;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--white-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
 }

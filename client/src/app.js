@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import ProductList from './pages/ProductList';
 import Navbar from './components/Navbar';
 import Product3DView from './pages/Product3DView';
-import PoseTryOn from './components/PoseTryOn';
+import TryOnPage from './pages/TryOnPage';
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductList />} />
-        <Route path="/product-view" element={<Product3DView />} />
-        <Route path="/try-on" element={<PoseTryOn />} />
+        <Route path="/product-view/:id" element={<Product3DView />} />
+        <Route path="/try-on" element={<TryOnPage />} />
 
         
 

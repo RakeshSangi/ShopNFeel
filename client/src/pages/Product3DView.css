@@ -1,0 +1,35 @@
+.product-view-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.product-view-container h2 {
+  margin-bottom: 10px;
+}
+
+.product-view-container p {
+  margin-bottom: 20px;
+  color: #555;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-view-actions {
+  margin-top: 20px;
+}
+
+.product-view-actions .try-on-btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-view-actions .try-on-btn:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
