@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // Health check route
 app.get('/', (req, res) => {
-  res.send('ShopNFeel API is running');
+  res.json({ message: 'ShopNFeel API is running' });
 });
 
 // Product API route

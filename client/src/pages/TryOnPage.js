@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import * as poseDetection from '@tensorflow-models/pose-detection';
 import '@tensorflow/tfjs-backend-webgl';
-import Message from './Message';
+import Message from '../components/Message';
 import Loader from '../components/Loader';
 import './TryOnPage.css';
 
