@@ -1,33 +1,14 @@
 // client/src/pages/ProductList.js
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import useApi from '../hooks/useApi';
 import './ProductList.css';
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data: products, loading, error } = useApi('/api/products');
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setLoading(true);
-        const { data } = await axios.get('/api/products');
-        setProducts(data);
-        setLoading(false);
-      } catch (error) {
-        setError('There was an error fetching the products.');
-        console.error('Error fetching products:', error);
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
-  }, []);
 
   if (loading) return <Loader />;
   if (error) return <Message variant="danger">{error}</Message>;
@@ -36,7 +17,7 @@ const ProductList = () => {
     <div className="product-list">
       <h2>Explore Our Collection</h2>
       <div className="products">
-        {products.map(product => (
+        {products && products.map(product => (
           <div className="product-card" key={product._id}>
             <img src={product.image} alt={product.name} />
             <h3>{product.name}</h3>

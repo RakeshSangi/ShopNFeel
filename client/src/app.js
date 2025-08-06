@@ -16,9 +16,6 @@ function App() {
         <Route path="/products" element={<ProductList />} />
         <Route path="/product-view/:id" element={<Product3DView />} />
         <Route path="/try-on" element={<TryOnPage />} />
-
-        
-
       </Routes>
     </Router>
   );

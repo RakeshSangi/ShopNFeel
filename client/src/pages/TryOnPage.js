@@ -7,6 +7,10 @@ import Message from '../components/Message';
 import Loader from '../components/Loader';
 import './TryOnPage.css';
 
+// Constants for the virtual try-on experience
+const POSE_CONFIDENCE_THRESHOLD = 0.5;
+const CLOTHING_SCALE_FACTOR = 1.8; // Adjust this for a better fit
+
 const TryOnPage = () => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
@@ -68,15 +72,12 @@ const TryOnPage = () => {
         const leftHip = poses[0].keypoints.find(k => k.name === 'left_hip');
         const rightHip = poses[0].keypoints.find(k => k.name === 'right_hip');
 
-        const allPointsVisible = leftShoulder?.score > 0.5 && rightShoulder?.score > 0.5 && leftHip?.score > 0.5 && rightHip?.score > 0.5;
+        const allPointsVisible = leftShoulder?.score > POSE_CONFIDENCE_THRESHOLD && rightShoulder?.score > POSE_CONFIDENCE_THRESHOLD && leftHip?.score > POSE_CONFIDENCE_THRESHOLD && rightHip?.score > POSE_CONFIDENCE_THRESHOLD;
 
         if (allPointsVisible) {
           // Calculate placement based on keypoints
           const shoulderWidth = Math.abs(rightShoulder.x - leftShoulder.x);
-          const bodyHeight = Math.abs(((leftHip.y + rightHip.y) / 2) - ((leftShoulder.y + rightShoulder.y) / 2));
-          
-          const scaleFactor = 1.8; // Adjust this for a better fit
-          const overlayWidth = shoulderWidth * scaleFactor; 
+          const overlayWidth = shoulderWidth * CLOTHING_SCALE_FACTOR; 
           const overlayHeight = (overlayWidth / clothingOverlay.width) * clothingOverlay.height;
 
           const overlayX = leftShoulder.x - (overlayWidth - shoulderWidth) / 2;

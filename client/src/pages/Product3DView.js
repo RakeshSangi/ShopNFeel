@@ -1,34 +1,16 @@
 // client/src/pages/Product3DView.js
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import ClothingViewer from '../components/ClothingViewer';
+import useApi from '../hooks/useApi';
 import './Product3DView.css';
 
 const Product3DView = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data: product, loading, error } = useApi(`/api/products/${id}`);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        setLoading(true);
-        const { data } = await axios.get(`/api/products/${id}`);
-        setProduct(data);
-        setLoading(false);
-      } catch (err) {
-        setError('Could not fetch product details.');
-        console.error('Error fetching product:', err);
-        setLoading(false);
-      }
-    };
-    fetchProduct();
-  }, [id]);
 
   return loading ? (
     <Loader />

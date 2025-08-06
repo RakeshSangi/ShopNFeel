@@ -15,7 +15,7 @@ ShopNFeel is a modern, full-stack e-commerce web application built with the MERN
 - **Frontend**: React, React Router, React Three Fiber, Axios
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB with Mongoose
-- **3D & AI**: Three.js, TensorFlow.js (PoseNet)
+- **3D & AI**: Three.js, TensorFlow.js (MoveNet)
 
 ---
 
