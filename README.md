@@ -108,6 +108,7 @@ Your application needs some initial product data to function. A seeder script is
 # Spin Up a MongoDB docker Container for database
 # Install Docker
 sudo yum update -y
+
 yum install docker -y
 
 # Start the Docker service
