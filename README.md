@@ -109,7 +109,7 @@ Your application needs some initial product data to function. A seeder script is
 ```bash
 # Install Docker
 sudo yum update -y
-yum install docker -y
+sudo yum install docker -y
 #Add your user ('ec2-user') to the 'docker' group
 sudo usermod -a -G docker ec2-user
 # Start the Docker service
