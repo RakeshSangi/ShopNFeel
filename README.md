@@ -84,7 +84,8 @@ Open the `.env` file and add the following variables. Replace the placeholder wi
 ```env
 NODE_ENV=development
 PORT=5000
-MONGO_URI=your_mongodb_connection_string
+#MONGO_URI=your_mongodb_connection_string
+MONGO_URI=mongodb://127.0.0.1:27017/shopnfeel
 ```
 
 ### 3. Frontend Setup
@@ -109,7 +110,7 @@ Your application needs some initial product data to function. A seeder script is
 ```bash
 # Install Docker
 sudo yum update -y
-sudo yum install docker -y
+yum install docker -y
 #Add your user ('ec2-user') to the 'docker' group
 sudo usermod -a -G docker ec2-user
 # Start the Docker service
